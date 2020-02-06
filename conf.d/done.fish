@@ -32,7 +32,7 @@ function __done_get_focused_window_id
         and test -n "$DISPLAY"
         xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2
     else if uname -a | string match --quiet --regex Microsoft
-        echo 12345 # dummy value since cannot get window state info under WSL
+        getCurrentWindow.py
     end
 end
 
