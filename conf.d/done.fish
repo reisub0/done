@@ -115,7 +115,7 @@ if test -z "$SSH_CLIENT" # not over ssh
             if test $exit_status -ne 0
                 set title "Failed ($exit_status) after $humanized_duration"
             end
-            ntfy -t $title send $message
+            ntfy -t $USER@$hostname:$title send $message
 
             if set -q __done_notification_command
                 eval $__done_notification_command
