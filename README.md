@@ -22,13 +22,12 @@ After installing you could type, for instance `sleep 6`, and start using other a
 #### Using [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```fish
-fisher add franciscolourenco/done
+fisher install franciscolourenco/done
 ```
 
 #### Manually
 
 ```fish
-curl -Lo ~/.config/fish/functions/humanize_duration.fish --create-dirs https://raw.githubusercontent.com/fishpkg/fish-humanize-duration/master/humanize_duration.fish
 curl -Lo ~/.config/fish/conf.d/done.fish --create-dirs https://raw.githubusercontent.com/franciscolourenco/done/master/conf.d/done.fish
 ```
 
@@ -42,12 +41,13 @@ brew install terminal-notifier
 
 - If you are using https://swaywm.org please install `jq`.
 
-- If you are using Windows Subsystem for Linux (WSL), please install the [BurntToast](https://github.com/Windos/BurntToast) Powershell module. 
+
+- If you are using Windows Subsystem for Linux (WSL) you may need to install [wslu](https://github.com/wslutilities/wslu), but usually it is pre-installed.
 
 ## Updating
 
 ```fish
-fisher
+fisher update franciscolourenco/done
 ```
 
 ## Settings
@@ -78,12 +78,24 @@ set -U __done_notification_command 'some custom command'
 set -U __done_notify_sound 1
 ```
 
+#### When using `sway`, do not show notifications for visible windows.
+
+```fish
+set -U __done_sway_ignore_visible 1
+```
+
+#### For Linux, set the urgency level for notifications sent via notify-send (low, normal, critical).
+
+```fish
+set -U __done_notification_urgency_level critical
+```
+
 ## Support
 
 - [fish](https://fishshell.com) 2.3.0+
 - macOS 10.8+ via Notification Center.
 - Linux via `notify-send`. Otherwise bell sound is played.
-- Windows 10 via Windows Subsystem for Linux (WSL) and [BurntToast](https://github.com/Windos/BurntToast)
+- Windows 10 via Windows Subsystem for Linux (WSL) and PowerShell.
 
 ## Credits
 
